@@ -1,9 +1,20 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
+/**
+ * Retrieves the list of languages available from the API.
+ *
+ * @param {void} - This function does not take any parameters.
+ * @return {Promise<void>} - A Promise that resolves when the list of languages is retrieved successfully.
+ */
 const Dropdowns = ({ setInputLanguage, setOutputLanguage }) => {
 	const [languages, setLanguages] = useState([])
 
+	/**
+	 * Retrieves the list of languages available from the API.
+	 *
+	 * @return {Promise<void>} - A Promise that resolves when the list of languages is retrieved successfully.
+	 */
 	const getLanguages = async () => {
 		const options = {
 			method: 'GET',
@@ -22,10 +33,22 @@ const Dropdowns = ({ setInputLanguage, setOutputLanguage }) => {
 		}
 	}
 
+	/**
+	 * Handles the change event when the input language is changed.
+	 *
+	 * @param {Event} e - The change event object.
+	 * @return {void} This function does not return a value.
+	 */
 	const handleInputLanguageChange = (e) => {
 		setInputLanguage(e.target.value)
 	}
 
+	/**
+	 * Handles the change of the output language.
+	 *
+	 * @param {Event} e - The event object representing the change event.
+	 * @return {void} This function does not return any value.
+	 */
 	const handleOutputLanguageChange = (e) => {
 		setOutputLanguage(e.target.value)
 	}

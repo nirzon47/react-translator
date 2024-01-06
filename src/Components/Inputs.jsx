@@ -8,6 +8,11 @@ const Inputs = () => {
 	const [input, setInput] = useState('')
 	const [output, setOutput] = useState('')
 
+	/**
+	 * Handles the translate button click event.
+	 *
+	 * @return {Promise<void>} A promise that resolves when the translation is complete.
+	 */
 	const handleClickTranslate = async () => {
 		const encodedParams = new URLSearchParams()
 		encodedParams.set('source_language', inputLanguage)
