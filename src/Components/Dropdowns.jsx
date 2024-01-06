@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-const Dropdowns = () => {
+const Dropdowns = ({ setInputLanguage, setOutputLanguage }) => {
 	const [languages, setLanguages] = useState([])
 
 	const getLanguages = async () => {
@@ -16,11 +16,18 @@ const Dropdowns = () => {
 
 		try {
 			const response = await axios.request(options)
-			console.log(response.data.data.languages)
 			setLanguages(response.data.data.languages)
 		} catch (error) {
 			console.error(error)
 		}
+	}
+
+	const handleInputLanguageChange = (e) => {
+		setInputLanguage(e.target.value)
+	}
+
+	const handleOutputLanguageChange = (e) => {
+		setOutputLanguage(e.target.value)
 	}
 
 	useEffect(() => getLanguages, [])
@@ -31,7 +38,10 @@ const Dropdowns = () => {
 				<div className='label'>
 					<span className='label-text'>Source Language</span>
 				</div>
-				<select className='select select-bordered'>
+				<select
+					className='select select-bordered'
+					onChange={handleInputLanguageChange}
+				>
 					<option value={'auto'} selected>
 						Auto Identify
 					</option>
@@ -43,9 +53,12 @@ const Dropdowns = () => {
 
 			<label className='form-control w-full max-w-xs'>
 				<div className='label'>
-					<span className='label-text'>Source Language</span>
+					<span className='label-text'>Target Language</span>
 				</div>
-				<select className='select select-bordered'>
+				<select
+					className='select select-bordered'
+					onChange={handleOutputLanguageChange}
+				>
 					<option value={'en'} selected>
 						English
 					</option>
