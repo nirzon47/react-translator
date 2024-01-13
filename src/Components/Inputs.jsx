@@ -40,13 +40,13 @@ const Inputs = () => {
 
 	return (
 		<div className='grid'>
-			<h2 className='font-medium text-lg mb-4'>Input</h2>
+			<h2 className='mb-4 text-lg font-medium'>Input</h2>
 			<textarea
 				name='input'
 				id='input'
 				cols='30'
 				rows='2'
-				className='textarea textarea-bordered resize-none font-mono w-full mb-8'
+				className='w-full mb-8 font-mono resize-none textarea textarea-bordered'
 				value={input}
 				onChange={(e) => setInput(e.target.value)}
 			></textarea>
@@ -57,20 +57,21 @@ const Inputs = () => {
 			/>
 
 			<button
-				className='btn btn-secondary mt-4'
+				className='mt-4 btn btn-secondary'
 				onClick={handleClickTranslate}
 			>
 				Translate
 			</button>
 
-			<h2 className='font-medium text-lg mt-8 mb-4'>Output</h2>
+			<h2 className='mt-8 mb-4 text-lg font-medium'>Output</h2>
 			<textarea
 				name='output'
 				id='output'
 				cols='30'
 				rows='2'
-				className='textarea textarea-bordered resize-none font-mono w-full'
+				className='w-full font-mono resize-none textarea textarea-bordered'
 				value={output}
+				onChange={(e) => setOutput(e.target.value)}
 			></textarea>
 		</div>
 	)

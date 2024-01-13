@@ -65,8 +65,9 @@ const Dropdowns = ({ setInputLanguage, setOutputLanguage }) => {
 				<select
 					className='select select-bordered'
 					onChange={handleInputLanguageChange}
+					defaultValue={'auto'}
 				>
-					<option value={'auto'} selected key={nanoid()}>
+					<option value={'auto'} key={nanoid()}>
 						Auto Identify
 					</option>
 					{languages.map((language) => (
@@ -84,8 +85,9 @@ const Dropdowns = ({ setInputLanguage, setOutputLanguage }) => {
 				<select
 					className='select select-bordered'
 					onChange={handleOutputLanguageChange}
+					defaultValue={'en'}
 				>
-					<option value={'en'} selected key={nanoid()}>
+					<option value={'en'} key={nanoid()}>
 						English
 					</option>
 					{languages.map((language) =>
