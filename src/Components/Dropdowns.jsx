@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { nanoid } from 'nanoid'
 
 /**
  * Retrieves the list of languages available from the API.
@@ -57,7 +58,7 @@ const Dropdowns = ({ setInputLanguage, setOutputLanguage }) => {
 
 	return (
 		<div className='grid grid-cols-2 gap-4'>
-			<label className='form-control w-full max-w-xs'>
+			<label className='w-full max-w-xs form-control'>
 				<div className='label'>
 					<span className='label-text'>Source Language</span>
 				</div>
@@ -65,16 +66,18 @@ const Dropdowns = ({ setInputLanguage, setOutputLanguage }) => {
 					className='select select-bordered'
 					onChange={handleInputLanguageChange}
 				>
-					<option value={'auto'} selected>
+					<option value={'auto'} selected key={nanoid()}>
 						Auto Identify
 					</option>
 					{languages.map((language) => (
-						<option value={language.code}>{language.name}</option>
+						<option value={language.code} key={nanoid()}>
+							{language.name}
+						</option>
 					))}
 				</select>
 			</label>
 
-			<label className='form-control w-full max-w-xs'>
+			<label className='w-full max-w-xs form-control'>
 				<div className='label'>
 					<span className='label-text'>Target Language</span>
 				</div>
@@ -82,12 +85,14 @@ const Dropdowns = ({ setInputLanguage, setOutputLanguage }) => {
 					className='select select-bordered'
 					onChange={handleOutputLanguageChange}
 				>
-					<option value={'en'} selected>
+					<option value={'en'} selected key={nanoid()}>
 						English
 					</option>
 					{languages.map((language) =>
 						language === 'en' ? null : (
-							<option value={language.code}>{language.name}</option>
+							<option value={language.code} key={nanoid()}>
+								{language.name}
+							</option>
 						)
 					)}
 				</select>
