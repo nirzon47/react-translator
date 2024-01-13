@@ -54,7 +54,9 @@ const Dropdowns = ({ setInputLanguage, setOutputLanguage }) => {
 		setOutputLanguage(e.target.value)
 	}
 
-	useEffect(() => getLanguages, [])
+	useEffect(() => {
+		getLanguages()
+	}, [])
 
 	return (
 		<div className='grid grid-cols-2 gap-4'>
